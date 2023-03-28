@@ -15,7 +15,7 @@ public class Program {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 		System.out.println("Room number: ");
-		int roomNumber = sc.nextInt();
+		int room = sc.nextInt();
 
 		System.out.println("Check-in date (dd/MM/yyyy): ");
 		Date checkIn = simpleDateFormat.parse(sc.next());
@@ -26,7 +26,7 @@ public class Program {
 		if (!checkOut.after(checkIn)) {
 			System.out.println("A data de check-in nao pode ser maior que a data de check-out!");
 		} else {
-			Reservation reservation = new Reservation(roomNumber, checkIn, checkOut);
+			Reservation reservation = new Reservation(room, checkIn, checkOut);
 			System.out.println("Reservation: " + reservation.toString());
 
 			System.out.println();
