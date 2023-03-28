@@ -40,9 +40,17 @@ public class Reservation {
 		return diff;
 	}
 	
-	public void updateDates(Date checkin, Date checkout) {
+	public String updateDates(Date checkin, Date checkout) {
+		Date hoje = new Date();
+		if (checkIn.before(hoje) || checkOut.before(hoje)) {
+			return "As datas nao podem ser anteriores a data atual";
+		}
+		if (!checkOut.after(checkIn)) {
+			return "A data de check-in nao pode ser maior que a data de check-out!";
+		}
 		this.checkIn = checkin;
 		this.checkOut = checkout;
+		return null;
 	}
 	
 	@Override

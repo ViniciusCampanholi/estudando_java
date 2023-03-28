@@ -38,15 +38,13 @@ public class Program {
 			System.out.println("Check-out date (dd/MM/yyyy): ");
 			checkOut = simpleDateFormat.parse(sc.next());
 
-			Date hoje = new Date();
-			if (checkIn.before(hoje) || checkOut.before(hoje)) {
-				System.out.println("Erro ao fazer a reserva, as datas nao podem ser anteriores a data atual");
-			} else if (!checkOut.after(checkIn)) {
-				System.out.println("A data de check-in nao pode ser maior que a data de check-out!");
+			String error = reservation.updateDates(checkIn, checkOut);
+			if(error != null) {
+				System.out.println("Erro ao fazer a reserva: "+error);
 			} else {
-				reservation.updateDates(checkIn, checkOut);
-				System.out.println("Reservation: " + reservation);
+				System.out.println("Reservation: " + reservation);				
 			}
+
 		}
 	}
 
