@@ -44,6 +44,8 @@ public class Program {
 			System.out.println("Formato de data invalido");
 		} catch(DomainException e) {
 			System.out.println("Erro: "+ e.getMessage());
+		} catch(RuntimeException e) {
+			System.out.println("Ocorreu um erro inesperado");
 		}
 	}
 }
